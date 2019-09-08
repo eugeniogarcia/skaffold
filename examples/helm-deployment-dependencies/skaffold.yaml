@@ -1,0 +1,16 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: gcr.io/k8s-skaffold/skaffold-helm
+deploy:
+  helm:
+    releases:
+      - name: skaffold-helm
+        chartPath: skaffold-helm
+        skipBuildDependencies: true
+        values:
+          image: gcr.io/k8s-skaffold/skaffold-helm
+          "skaffold-helm-subchart.image": gcr.io/k8s-skaffold/skaffold-helm

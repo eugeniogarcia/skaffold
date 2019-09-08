@@ -1,0 +1,9 @@
+replicaCount: 1
+service:
+  name: nginx
+  type: NodePort
+  externalPort: 80
+  internalPort: 80
+ingress:
+  enabled: true
+resources: {}
